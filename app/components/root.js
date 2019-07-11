@@ -9,7 +9,6 @@ const Root = () => {
     <Router>
       <div>
         <nav>
-          Goodie Bag!
           <Link to="/">Home</Link>
           <Link to="/candies">All Candies</Link>
         </nav>

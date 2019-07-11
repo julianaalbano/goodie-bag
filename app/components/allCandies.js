@@ -15,11 +15,11 @@ class AllCandies extends React.Component {
         <h1>These are all of your candies!</h1>
         {candies.map(candy => (
           <div key={candy.id}>
+            <img className="candy-img" src={candy.imageUrl} />
             <Link to={`/candies/${candy.id}`}>
-              <img src={candy.imageUrl} />
               <h3>{candy.name}</h3>
-              <h5>{candy.description}</h5>
             </Link>
+            <h5>{candy.description}</h5>
           </div>
         ))}
       </div>
