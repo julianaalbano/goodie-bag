@@ -1,6 +1,7 @@
 import React from 'react';
 import { getCandiesThunk } from '../reducers/index';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class AllCandies extends React.Component {
   componentDidMount() {
@@ -8,18 +9,19 @@ class AllCandies extends React.Component {
   }
   render() {
     const candies = this.props.candies;
+    if (this.props.loading) return 'Loading...';
     return (
       <div>
-        <main>
-          <h1>These are all of your candies!</h1>
-          {candies.map(candy => (
-            <div key={candy.id}>
+        <h1>These are all of your candies!</h1>
+        {candies.map(candy => (
+          <div key={candy.id}>
+            <Link to={`/candies/${candy.id}`}>
               <img src={candy.imageUrl} />
               <h3>{candy.name}</h3>
               <h5>{candy.description}</h5>
-            </div>
-          ))}
-        </main>
+            </Link>
+          </div>
+        ))}
       </div>
     );
   }

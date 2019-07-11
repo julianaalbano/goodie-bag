@@ -1,6 +1,8 @@
 import React from 'react';
 import AllCandies from './allCandies';
+import Home from './Home';
 import { HashRouter as Router, Link, Route } from 'react-router-dom';
+import SingleCandy from './SingleCandy';
 
 const Root = () => {
   return (
@@ -12,10 +14,9 @@ const Root = () => {
           <Link to="/candies">All Candies</Link>
         </nav>
         <main>
-          <h1>Welcome to the Goodie Bag!</h1>
-          <p>What a nice home page for your goodies!</p>
-          <Route exact path="/" />
+          <Route exact path="/" component={Home} />
           <Route exact path="/candies" component={AllCandies} />
+          <Route exact path="/candies/:id" component={SingleCandy} />
         </main>
       </div>
     </Router>
